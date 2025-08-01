@@ -39,7 +39,7 @@ def main():
     args = parser.parse_args()
 
     if args.dataset == "brain":
-    # Find the dataset here : https://github.com/HennyJie/BrainGB/tree/master/examples/utils/get_abide
+    # Download and save in datasets/BRAIN. Find the dataset here : https://github.com/HennyJie/BrainGB/tree/master/examples/utils/get_abide
         train_loader, val_loader, test_loader, scaler = load_brain_dataset(
             npy_path="./datasets/BRAIN/abide.npy",
             batch_size=args.batch_size,
@@ -47,6 +47,7 @@ def main():
             pred_len=args.pred_len
         )
     elif args.dataset == "metr":
+     # Download and save in datasets/METR-LA. Find the dataset here: https://www.kaggle.com/datasets/annnnguyen/metr-la-dataset
         train_loader, val_loader, test_loader, scaler = load_metr_dataset(
             speed_path="./datasets/METR-LA/METR-LA.h5",
             adj_path="./datasets/METR-LA/adj_METR-LA.pkl",
@@ -55,6 +56,7 @@ def main():
             pred_len=args.pred_len
         )
     elif args.dataset == "bitcoin-otc":
+    # Download and save in datasets/BITCOIN. Find the dataset here: https://snap.stanford.edu/data/soc-sign-bitcoin-otc.html
         train_loader, val_loader, test_loader, scaler = load_bitcoin_dataset(
             otc = True,
             batch_size=args.batch_size,
@@ -62,6 +64,7 @@ def main():
             pred_len=args.pred_len
         )
     elif args.dataset == "bitcoin-alpha":
+    # Download and save in datasets/BITCOIN. Find the dataset here: https://snap.stanford.edu/data/soc-sign-bitcoin-alpha.html
         train_loader, val_loader, test_loader, scaler = load_bitcoin_dataset(
             otc = False,
             batch_size=args.batch_size,
